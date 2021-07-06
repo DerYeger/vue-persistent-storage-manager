@@ -38,12 +38,11 @@ import { VuePersistentStorageManager } from 'vue-persistent-storage-manager'
 Vue.use(VuePersistentStorageManager, { watchStorage: true })
 ```
 
-> Note: If `watchStorage` is set to `true`, the functions `localStorage.setItem` and `localStorage.removeItem` are replaced by event-emitting functions.
-> These replacements wrap the original functions and enable recalculation of the `StorageEstimate`.
+> Note: If `watchStorage` is set to `true`, the functions `localStorage.setItem` and `localStorage.removeItem` are replaced by functions that call the original implementations.
 
 ### Nuxt
 
-1. Create the file `plugins/persistentStorageManager.ts` as seen below.
+1. Create the file `plugins/persistentStorageManager.ts` with the following contents.
 
 ```typescript
 import Vue from 'vue'
@@ -54,7 +53,7 @@ export default () => {
 }
 ```
 
-2. Update the plugins field in `nuxt.config.js`:
+2. Update the `plugins` array in `nuxt.config.js`.
 
 ```typescript
 export default {
