@@ -1,16 +1,49 @@
 import Vue, { PluginFunction } from 'vue'
 
+/**
+ * Options for the VuePersistentStorageManager plugin.
+ */
 declare interface VuePersistentStorageManagerOptions {
+  /**
+   * If true, localStorage.setItem and localStorage.removeItem will be replaced with custom functions.
+   *
+   */
   watchStorage: boolean
 }
 
+/**
+ * Wrapper for the StorageManager API.
+ */
 declare class VuePersistentStorageManager {
+  /**
+   * Installs a VuePersistentStorageManager as a Vue plugin.
+   */
   static readonly install: PluginFunction<VuePersistentStorageManagerOptions>
 
+  /**
+   * Creates a new VuePersistentStorageManager instance.
+   */
   constructor()
+
+  /**
+   * Indicates that the StorageManager API is available.
+   */
   readonly isActive: boolean
+
+  /**
+   * Indicates that persistence of localStorage has been granted.
+   */
   readonly isPersistent: boolean
+
+  /**
+   * Contains storage quota and usage information.
+   */
   readonly storageEstimate: StorageEstimate
+
+  /**
+   * Requests persistence of localStorage.
+   * @return Promise that resolves to true if permission has been granted.
+   */
   requestPersistentStorage(): Promise<boolean>
 }
 
