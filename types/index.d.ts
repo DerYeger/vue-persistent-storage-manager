@@ -28,7 +28,7 @@ declare class VuePersistentStorageManager {
   /**
    * Indicates that the StorageManager API is available.
    */
-  readonly isActive: boolean
+  readonly isAvailable: boolean
 
   /**
    * Indicates that persistence of localStorage has been granted.
