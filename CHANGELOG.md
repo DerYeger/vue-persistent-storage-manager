@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v1.0.3...v1.0.4) (2021-07-06)
+
+
+### Bug Fixes
+
+* remove default export ([92f2e86](https://github.com/DerYeger/vue-persistent-storage-manager/commit/92f2e863189311f706119d2d0c890f273b085a22))
+
 ## [1.0.3](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v1.0.2...v1.0.3) (2021-07-06)
 
 
