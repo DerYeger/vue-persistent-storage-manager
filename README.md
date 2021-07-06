@@ -2,7 +2,10 @@
 
 <p align="center">
   <a href="https://github.com/DerYeger/vue-persistent-storage-manager/actions/workflows/ci.yml">
-    <img alt="CI" src="https://github.com/DerYeger/vue-persistent-storage-manager/actions/workflows/ci.yml/badge.svg?event=push">
+    <img alt="CI" src="https://img.shields.io/github/workflow/status/DerYeger/vue-persistent-storage-manager/CI?label=CI&logo=github">
+  </a>
+  <a href="https://www.npmjs.com/package/vue-persistent-storage-manager">
+    <img alt="NPM" src="https://img.shields.io/npm/v/vue-persistent-storage-manager">
   </a>
 </p>
 
