@@ -1,5 +1,3 @@
-import Vue from 'vue'
-
 let localStorageFunctionsModified = false
 
 function modifyLocalStorageFunctions() {
@@ -20,7 +18,7 @@ function modifyLocalStorageFunctions() {
 }
 
 export default class VuePersistentStorageManager {
-  static install(_, options) {
+  static install(Vue, options) {
     const watchStorage = options?.watchStorage ?? false
     Vue.prototype.$storageManager = Vue.observable(new VuePersistentStorageManager(watchStorage))
     if (watchStorage) {
