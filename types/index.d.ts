@@ -6,7 +6,8 @@ declare interface VuePersistentStorageManagerOptions {
 
 declare class VuePersistentStorageManager {
   static readonly install: PluginFunction<VuePersistentStorageManagerOptions>
-  constructor(watchStorage: boolean)
+
+  constructor()
   readonly isActive: boolean
   readonly isPersistent: boolean
   readonly storageEstimate: StorageEstimate

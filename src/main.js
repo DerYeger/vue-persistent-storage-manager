@@ -1,20 +1,18 @@
 let localStorageFunctionsModified = false
 
-const storageEventType = 'storage'
-
-function modifyLocalStorageFunctions() {
+function modifyLocalStorageFunctions(storageManager) {
   if (localStorageFunctionsModified || typeof localStorage === 'undefined') {
     return
   }
   const originalSetItem = localStorage.setItem
   localStorage.setItem = function (...args) {
     originalSetItem.apply(this, args)
-    window.dispatchEvent(new StorageEvent(storageEventType))
+    storageManager._refreshStorageEstimate()
   }
   const originalRemoveItem = localStorage.removeItem
   localStorage.removeItem = function (...args) {
     originalRemoveItem.apply(this, args)
-    window.dispatchEvent(new StorageEvent(storageEventType))
+    storageManager._refreshStorageEstimate()
   }
   localStorageFunctionsModified = true
 }
@@ -22,13 +20,14 @@ function modifyLocalStorageFunctions() {
 export class VuePersistentStorageManager {
   static install(Vue, options) {
     const watchStorage = options?.watchStorage ?? false
-    Vue.prototype.$storageManager = Vue.observable(new VuePersistentStorageManager(watchStorage))
+    const storageManager = Vue.observable(new VuePersistentStorageManager(watchStorage))
+    Vue.prototype.$storageManager = storageManager
     if (watchStorage) {
-      modifyLocalStorageFunctions()
+      modifyLocalStorageFunctions(storageManager)
     }
   }
 
-  constructor(watchStorage) {
+  constructor() {
     this._isAvailable = typeof navigator !== 'undefined' && navigator?.storage?.persist !== undefined
     this._isPersistent = false
     this._storageEstimate = {
@@ -38,18 +37,16 @@ export class VuePersistentStorageManager {
     if (!this._isAvailable) {
       return
     }
-    this._refreshIsActive()
+    this._refreshIsPersistent()
     this._refreshStorageEstimate()
     if ('permissions' in navigator) {
       navigator.permissions.query({ name: 'persistent-storage' }).then((persistentStoragePermission) => {
-        persistentStoragePermission.onchange = () => this._refreshIsActive()
+        persistentStoragePermission.onchange = () => this._refreshIsPersistent()
       })
     }
-    if (watchStorage) {
-      window.addEventListener(storageEventType, () => {
-        this._refreshStorageEstimate()
-      })
-    }
+    window.addEventListener('storage', () => {
+      this._refreshStorageEstimate()
+    })
   }
 
   get isAvailable() {
@@ -74,7 +71,7 @@ export class VuePersistentStorageManager {
     })
   }
 
-  _refreshIsActive() {
+  _refreshIsPersistent() {
     navigator.storage.persisted().then((persisted) => (this._isPersistent = persisted))
   }
 
