@@ -19,7 +19,7 @@
     "types"
   ],
   "scripts": {
-    "build": "vue-cli-service build --target lib --entry src/index.js",
+    "build": "vue-cli-service build --target lib --entry src/main.js",
     "test": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "pretty": "prettier --write \"./**/*.{js,json,html,scss,ts,yml}\"",

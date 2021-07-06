@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import VuePersistentStorageManager from '@/index'
+import { VuePersistentStorageManager } from '@/main'
 
 describe('StorageManager', () => {
   it('can be installed', () => {
