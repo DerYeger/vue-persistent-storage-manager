@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v1.0.2...v1.0.3) (2021-07-06)
+
+
+### Bug Fixes
+
+* properly access Vue parameter in install method ([e063f3e](https://github.com/DerYeger/vue-persistent-storage-manager/commit/e063f3ed07ea6272f6eff886d2f620d43afcc150))
+
 ## [1.0.2](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v1.0.1...v1.0.2) (2021-07-06)
 
 
