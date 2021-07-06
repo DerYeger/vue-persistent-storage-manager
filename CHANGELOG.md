@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v1.0.1...v1.0.2) (2021-07-06)
+
+
+### Bug Fixes
+
+* update library entrypoint ([c8a4687](https://github.com/DerYeger/vue-persistent-storage-manager/commit/c8a4687be0fb84185255e03af09a7ed760acf261))
+
 ## [1.0.1](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v1.0.0...v1.0.1) (2021-07-06)
 
 
