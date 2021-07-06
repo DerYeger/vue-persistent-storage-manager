@@ -97,6 +97,18 @@ jobs:
         uses: actions/checkout@master
         with:
           token: ${{ secrets.PAT }}
+      - name: Setup node env
+        uses: actions/setup-node@v2.2.0
+        with:
+          node-version: 14
+      - name: Cache node modules
+        id: node-cache
+        uses: actions/cache@v2
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('./package.json', './yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
       - name: Semantic release
         uses: cycjimmy/semantic-release-action@v2.5.4
         with:
