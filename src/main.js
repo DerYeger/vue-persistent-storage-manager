@@ -1,5 +1,7 @@
 let localStorageFunctionsModified = false
 
+const storageEventType = 'storage'
+
 function modifyLocalStorageFunctions() {
   if (localStorageFunctionsModified || typeof localStorage === 'undefined') {
     return
@@ -7,12 +9,12 @@ function modifyLocalStorageFunctions() {
   const originalSetItem = localStorage.setItem
   localStorage.setItem = function (...args) {
     originalSetItem.apply(this, args)
-    window.dispatchEvent(new StorageEvent('storage'))
+    window.dispatchEvent(new StorageEvent(storageEventType))
   }
   const originalRemoveItem = localStorage.removeItem
   localStorage.removeItem = function (...args) {
     originalRemoveItem.apply(this, args)
-    window.dispatchEvent(new StorageEvent('storage'))
+    window.dispatchEvent(new StorageEvent(storageEventType))
   }
   localStorageFunctionsModified = true
 }
@@ -44,7 +46,7 @@ export class VuePersistentStorageManager {
       })
     }
     if (watchStorage) {
-      window.addEventListener('storage', () => {
+      window.addEventListener(storageEventType, () => {
         this._refreshStorageEstimate()
       })
     }
