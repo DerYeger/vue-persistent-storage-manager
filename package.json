@@ -12,7 +12,7 @@
   },
   "version": "1.0.1",
   "private": false,
-  "main": "dist/vue-storage-manager.umd.js",
+  "main": "dist/vue-persistent-storage-manager.umd.js",
   "types": "types/index.d.ts",
   "files": [
     "dist",
