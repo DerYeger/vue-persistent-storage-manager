@@ -10,7 +10,7 @@
     "name": "Jan Müller",
     "url": "https://github.com/DerYeger"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "main": "dist/vue-storage-manager.umd.js",
   "types": "types/index.d.ts",
