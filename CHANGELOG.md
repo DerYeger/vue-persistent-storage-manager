@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v1.0.4...v1.1.0) (2021-07-06)
+
+
+### Features
+
+* replace custom events with method calls ([e8acbba](https://github.com/DerYeger/vue-persistent-storage-manager/commit/e8acbbaa5bed92a6c0b7fc538dea5126c0b3a95d))
+
 ## [1.0.4](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v1.0.3...v1.0.4) (2021-07-06)
 
 
