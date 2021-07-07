@@ -2,6 +2,7 @@
   "name": "vue-persistent-storage-manager",
   "description": "Vue plugin that wraps the StorageManager API and provides reactivity.",
   "license": "MIT",
+  "repository": "github:DerYeger/vue-persistent-storage-manager",
   "homepage": "https://github.com/DerYeger/vue-persistent-storage-manager",
   "bugs": {
     "url": "https://github.com/DerYeger/vue-persistent-storage-manager/issues"
@@ -10,6 +11,12 @@
     "name": "Jan Müller",
     "url": "https://github.com/DerYeger"
   },
+  "keywords": [
+    "vue",
+    "plugin",
+    "storagemanager",
+    "persistent-storage"
+  ],
   "version": "1.1.1",
   "private": false,
   "main": "dist/vue-persistent-storage-manager.umd.js",
