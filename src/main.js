@@ -22,10 +22,9 @@ function modifyLocalStorageFunctions(storageManager) {
 
 export class VuePersistentStorageManager {
   static install(Vue, options) {
-    const watchStorage = options?.watchStorage ?? false
-    const storageManager = Vue.observable(new VuePersistentStorageManager(watchStorage))
+    const storageManager = Vue.observable(new VuePersistentStorageManager())
     Vue.prototype.$storageManager = storageManager
-    if (watchStorage) {
+    if (options?.watchStorage ?? false) {
       modifyLocalStorageFunctions(storageManager)
     }
   }
