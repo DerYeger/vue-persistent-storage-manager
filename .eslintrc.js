@@ -23,5 +23,11 @@ module.exports = {
         jest: true,
       },
     },
+    {
+      files: ['**/__tests__/browser.{j,t}s?(x)', '**/tests/unit/**/browser.spec.{j,t}s?(x)'],
+      env: {
+        browser: true,
+      },
+    },
   ],
 }
