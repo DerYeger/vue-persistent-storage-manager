@@ -1,3 +1,11 @@
+## [1.1.2](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v1.1.1...v1.1.2) (2021-07-07)
+
+
+### Bug Fixes
+
+* augment Storage type ([73ee566](https://github.com/DerYeger/vue-persistent-storage-manager/commit/73ee566b1a89ce2c098a5152ba678bd7bdda8f90))
+* keep references to original setItem and removeItem functions ([23bc6e7](https://github.com/DerYeger/vue-persistent-storage-manager/commit/23bc6e7139e00352e7356e6014a2bd318b9b3295))
+
 ## [1.1.1](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v1.1.0...v1.1.1) (2021-07-06)
 
 
