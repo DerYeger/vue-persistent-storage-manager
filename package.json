@@ -41,7 +41,7 @@
     "eslint": "7.30.0",
     "eslint-plugin-prettier": "3.4.0",
     "eslint-plugin-vue": "7.13.0",
-    "flush-promises": "^1.0.2",
+    "flush-promises": "1.0.2",
     "lint-staged": "11.0.0",
     "prettier": "2.3.2",
     "vue": "2.6.14",
