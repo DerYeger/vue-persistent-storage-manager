@@ -10,6 +10,13 @@ function testPluginInstallation(vm, options) {
 }
 
 describe('VuePersistentStorageManager in node environment', () => {
+  beforeAll(() => {
+    // Remove Jest's localStorage mock to simulate plain node environment
+    // eslint-disable-next-line no-undef
+    Object.defineProperty(window, 'localStorage', {
+      value: undefined,
+    })
+  })
   it('can be installed without options', () => {
     const vm = createLocalVue()
     testPluginInstallation(vm)
