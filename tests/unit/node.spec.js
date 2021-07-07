@@ -29,6 +29,12 @@ describe('VuePersistentStorageManager in node environment', () => {
     const vm = createLocalVue()
     testPluginInstallation(vm, { watchStorage: false })
   })
+  it('can be installed multiple times', async () => {
+    const first = createLocalVue()
+    await testPluginInstallation(first, { watchStorage: true })
+    const second = createLocalVue()
+    await testPluginInstallation(second, { watchStorage: true })
+  })
   it('provides an empty StorageEstimate', () => {
     const vm = createLocalVue()
     testPluginInstallation(vm)

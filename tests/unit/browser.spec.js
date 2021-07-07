@@ -41,6 +41,12 @@ describe('VuePersistentStorageManager in browser environment', () => {
     const vm = createLocalVue()
     await testPluginInstallation(vm, { watchStorage: false })
   })
+  it('can be installed multiple times', async () => {
+    const first = createLocalVue()
+    await testPluginInstallation(first, { watchStorage: true })
+    const second = createLocalVue()
+    await testPluginInstallation(second, { watchStorage: true })
+  })
   it('provides the StorageEstimate', async () => {
     const testEstimate = {
       quota: 42,
@@ -67,7 +73,7 @@ describe('VuePersistentStorageManager in browser environment', () => {
   it('updates the StorageEstimate on localStorage.setItem', async () => {
     const vm = createLocalVue()
     await testPluginInstallation(vm, { watchStorage: true })
-    const originalSetItemSpy = jest.spyOn(localStorage, '_originalSetItem')
+    const originalSetItemSpy = jest.spyOn(localStorage, 'originalSetItem')
     expect(vm.prototype.$storageManager.storageEstimate).toEqual({})
     const testEstimate = {
       quota: 42,
@@ -82,7 +88,7 @@ describe('VuePersistentStorageManager in browser environment', () => {
   it('updates the StorageEstimate on localStorage.removeItem', async () => {
     const vm = createLocalVue()
     await testPluginInstallation(vm, { watchStorage: true })
-    const originalRemoveItemSpy = jest.spyOn(localStorage, '_originalRemoveItem')
+    const originalRemoveItemSpy = jest.spyOn(localStorage, 'originalRemoveItem')
     expect(vm.prototype.$storageManager.storageEstimate).toEqual({})
     const testEstimate = {
       quota: 42,

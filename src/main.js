@@ -1,20 +1,23 @@
-let localStorageFunctionsModified = false
-
 function modifyLocalStorageFunctions(storageManager) {
-  if (localStorageFunctionsModified || typeof localStorage === 'undefined') {
+  if (typeof localStorage === 'undefined') {
     return
   }
-  const originalSetItem = localStorage.setItem
+  if (typeof localStorage.originalSetItem === 'undefined') {
+    localStorage.originalSetItem = localStorage.setItem
+  }
+  const setItem = localStorage.setItem
   localStorage.setItem = function (...args) {
-    originalSetItem.apply(this, args)
+    setItem.apply(this, args)
     storageManager._refreshStorageEstimate()
   }
-  const originalRemoveItem = localStorage.removeItem
+  if (typeof localStorage.originalRemoveItem === 'undefined') {
+    localStorage.originalRemoveItem = localStorage.removeItem
+  }
+  const removeItem = localStorage.removeItem
   localStorage.removeItem = function (...args) {
-    originalRemoveItem.apply(this, args)
+    removeItem.apply(this, args)
     storageManager._refreshStorageEstimate()
   }
-  localStorageFunctionsModified = true
 }
 
 export class VuePersistentStorageManager {
@@ -39,11 +42,9 @@ export class VuePersistentStorageManager {
     }
     this._refreshIsPersistent()
     this._refreshStorageEstimate()
-    if ('permissions' in navigator) {
-      navigator.permissions.query({ name: 'persistent-storage' }).then((persistentStoragePermission) => {
-        persistentStoragePermission.onchange = () => this._refreshIsPersistent()
-      })
-    }
+    navigator.permissions?.query({ name: 'persistent-storage' })?.then((persistentStoragePermission) => {
+      persistentStoragePermission.onchange = () => this._refreshIsPersistent()
+    })
     window.addEventListener('storage', () => {
       this._refreshStorageEstimate()
     })
