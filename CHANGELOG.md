@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v1.1.2...v1.1.3) (2021-07-07)
+
+
+### Bug Fixes
+
+* remove superfluous constructor argument ([d9db767](https://github.com/DerYeger/vue-persistent-storage-manager/commit/d9db76767d1ac4ea9be8e43d33500e291e58bc42))
+
 ## [1.1.2](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v1.1.1...v1.1.2) (2021-07-07)
 
 
