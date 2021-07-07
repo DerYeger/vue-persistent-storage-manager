@@ -52,3 +52,10 @@ declare module 'vue/types/vue' {
     $storageManager: VuePersistentStorageManager
   }
 }
+
+declare global {
+  interface Storage {
+    originalSetItem: ((key: string, value: string) => void) | undefined;
+    originalRemoveItem: ((key: string) => void) | undefined;
+  }
+}
