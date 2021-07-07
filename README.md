@@ -39,11 +39,26 @@ import { VuePersistentStorageManager } from 'vue-persistent-storage-manager'
 Vue.use(VuePersistentStorageManager, { watchStorage: true })
 ```
 
-> Note: If `watchStorage` is set to `true`, the functions `localStorage.setItem` and `localStorage.removeItem` are replaced by functions that call the original implementations.
+Options are not required.
+In this case, `watchStorage` will default to `false`.
+> Note: If `watchStorage` is set to `true`, the functions `localStorage.setItem` and `localStorage.removeItem` are replaced by functions that update the StorageEstimate.
+> The original functions will still be called and are available as `localStorage.originalSetItem` and `localStorage.originalRemoveItem`
+
+```vue
+<template>
+  <div>
+    <button :disabled="!$storageManager.isAvailable || $storageManager.isPersistent" @click="$storageManager.requestPersistentStorage()">
+      {{ $storageManager.isPersistent ? 'Persistence granted' : 'Request persistence' }}
+    </button>
+    <p>{{ (100 * $storageManager.storageEstimate.usage) / $storageManager.storageEstimate.quota }}%</p>
+    <p>{{ $storageManager.storageEstimate.usage / 1000000 }}MB</p>
+  </div>
+</template>
+```
 
 ### Nuxt
 
-1. Create the file `plugins/persistentStorageManager.ts` with the following contents.
+1. Create the file `plugins/persistentStorageManager.ts` with the following content.
 
 ```typescript
 import Vue from 'vue'
