@@ -7,6 +7,9 @@
   <a href="https://www.npmjs.com/package/vue-persistent-storage-manager">
     <img alt="NPM" src="https://img.shields.io/npm/v/vue-persistent-storage-manager">
   </a>
+    <a href="https://codecov.io/gh/DerYeger/vue-persistent-storage-manager">
+      <img alt="Coverage" src="https://codecov.io/gh/DerYeger/vue-persistent-storage-manager/branch/master/graph/badge.svg?token=p35W6u2noe"/>
+    </a>
 </p>
 
 > Vue plugin that wraps the StorageManager API and provides reactivity.
