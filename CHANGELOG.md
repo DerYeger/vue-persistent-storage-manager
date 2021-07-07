@@ -1,3 +1,11 @@
+## [1.1.4](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v1.1.3...v1.1.4) (2021-07-07)
+
+
+### Bug Fixes
+
+* **deps:** replace babel-eslint with @babel/eslint-parser ([667d14d](https://github.com/DerYeger/vue-persistent-storage-manager/commit/667d14db34f9d9de946e3ba61c9879f676fca28f))
+* **deps:** update @vue/cli packages to v5.0.0-beta.2 ([93e65d5](https://github.com/DerYeger/vue-persistent-storage-manager/commit/93e65d516b2c36c73c5950ea5f904d717374d238))
+
 ## [1.1.3](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v1.1.2...v1.1.3) (2021-07-07)
 
 
