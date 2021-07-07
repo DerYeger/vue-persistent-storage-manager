@@ -19,8 +19,6 @@
 
 ## Installation
 
-1. Install dependency
-
 ```bash
 # yarn
 $ yarn add vue-persistent-storage-manager
@@ -29,7 +27,7 @@ $ yarn add vue-persistent-storage-manager
 $ npm install vue-persistent-storage-manager
 ```
 
-2. Configure plugin
+## Usage
 
 ```typescript
 import Vue from 'vue'
