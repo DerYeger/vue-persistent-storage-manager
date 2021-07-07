@@ -55,7 +55,7 @@ declare module 'vue/types/vue' {
 
 declare global {
   interface Storage {
-    originalSetItem: ((key: string, value: string) => void) | undefined;
-    originalRemoveItem: ((key: string) => void) | undefined;
+    originalSetItem: ((key: string, value: string) => void) | undefined
+    originalRemoveItem: ((key: string) => void) | undefined
   }
 }
