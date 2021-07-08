@@ -17,7 +17,7 @@
     "storagemanager",
     "persistent-storage"
   ],
-  "version": "1.1.4",
+  "version": "1.1.5",
   "private": false,
   "main": "dist/vue-persistent-storage-manager.umd.js",
   "types": "types/index.d.ts",

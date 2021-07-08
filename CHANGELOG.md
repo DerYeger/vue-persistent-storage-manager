@@ -1,3 +1,10 @@
+## [1.1.5](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v1.1.4...v1.1.5) (2021-07-08)
+
+
+### Bug Fixes
+
+* improve type documentation ([638b3bf](https://github.com/DerYeger/vue-persistent-storage-manager/commit/638b3bfd10eb22f9581e7774c993ba24b1d14976))
+
 ## [1.1.4](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v1.1.3...v1.1.4) (2021-07-07)
 
 
