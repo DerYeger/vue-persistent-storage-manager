@@ -12,11 +12,12 @@
     </a>
 </p>
 
-> Vue plugin that wraps the StorageManager API and provides reactivity.
+> Vue plugin that wraps the [StorageManager](https://developer.mozilla.org/en-US/docs/Web/API/StorageManager) API and provides the state of the `persistent-storage` permission alongside a storage estimate.
 
 ## Features
 
-- 💽 **StorageManager**: Wraps the [StorageManager](https://developer.mozilla.org/en-US/docs/Web/API/StorageManager) API.
+- ⌛ **Persistent storage**: Request and monitor the `persistent-storage` permission.
+- 💽 **Storage estimate**: Get storage quota and usage estimates.
 - 🔁 **Reactive**: Provides observable state using Vue's reactivity
 - ✔️ **SSR**: Supports server-side-rendering by validating the availability of the StorageManager API.
 

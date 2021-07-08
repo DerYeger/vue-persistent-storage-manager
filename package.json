@@ -1,6 +1,6 @@
 {
   "name": "vue-persistent-storage-manager",
-  "description": "Vue plugin that wraps the StorageManager API and provides reactivity.",
+  "description": "Vue plugin that wraps the StorageManager API and provides the state of the persistent-storage permission alongside a storage estimate.",
   "license": "MIT",
   "repository": "github:DerYeger/vue-persistent-storage-manager",
   "homepage": "https://github.com/DerYeger/vue-persistent-storage-manager",
