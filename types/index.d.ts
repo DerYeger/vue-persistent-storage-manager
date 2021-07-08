@@ -12,7 +12,7 @@ declare interface VuePersistentStorageManagerOptions {
 }
 
 /**
- * Wrapper for the StorageManager API.
+ * Wrapper for the StorageManager API. Provides the state of the persistent-storage permission alongside a storage estimate.
  */
 declare class VuePersistentStorageManager {
   /**
