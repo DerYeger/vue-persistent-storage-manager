@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v2.0.0...v2.0.1) (2021-07-09)
+
+
+### Bug Fixes
+
+* use correct `this` reference in function invocation ([17c8a7b](https://github.com/DerYeger/vue-persistent-storage-manager/commit/17c8a7b78399bf18ed700aa10fa19c976f24f847))
+
 # [2.0.0](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v1.1.5...v2.0.0) (2021-07-09)
 
 
