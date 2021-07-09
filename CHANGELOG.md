@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v2.0.1...v2.0.2) (2021-07-09)
+
+
+### Bug Fixes
+
+* remove redundant getter ([0d19c48](https://github.com/DerYeger/vue-persistent-storage-manager/commit/0d19c48fef2e9ab95c70f4a7d99044e5cc915ecf))
+
 ## [2.0.1](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v2.0.0...v2.0.1) (2021-07-09)
 
 
