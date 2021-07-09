@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v1.1.5...v2.0.0) (2021-07-09)
+
+
+### Features
+
+* rewrite plugin in typescript ([1cc9159](https://github.com/DerYeger/vue-persistent-storage-manager/commit/1cc9159b3987eb77b5590d3ff1a9fb2d3880a4bf))
+
+
+### BREAKING CHANGES
+
+* update type declarations
+
 ## [1.1.5](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v1.1.4...v1.1.5) (2021-07-08)
 
 
