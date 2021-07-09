@@ -1,5 +1,9 @@
 module.exports = {
-  preset: '@vue/cli-plugin-unit-jest',
+  preset: 'ts-jest',
   collectCoverage: true,
-  collectCoverageFrom: ['src/main.js'],
+  collectCoverageFrom: ['src/index.ts'],
+  moduleDirectories: ['node_modules', '<rootDir>/src'],
+  moduleNameMapper: {
+    '@/(.+)$': '<rootDir>/src/$1',
+  },
 }

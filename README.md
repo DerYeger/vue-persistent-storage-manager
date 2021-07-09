@@ -16,15 +16,16 @@
 </p>
 
 <p align="center">
-  <img alt="npm peer dependency version (scoped)" src="https://img.shields.io/npm/dependency-version/vue-persistent-storage-manager/peer/vue">
+  <img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/vue-persistent-storage-manager/peer/vue">
   <img alt="MIT" src="https://img.shields.io/npm/l/vue-persistent-storage-manager?color=#4DC71F">
+  <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/vue-persistent-storage-manager">
 </p>
 
 > Vue plugin that wraps the [StorageManager](https://developer.mozilla.org/en-US/docs/Web/API/StorageManager) API and provides the state of the `persistent-storage` permission alongside a storage estimate.
 
 ## Features
 
-- ⌛ **Persistent storage**: Request and monitor the `persistent-storage` permission.
+- 🔧 **Persistent storage**: Request and monitor the `persistent-storage` permission.
 - 💽 **Storage estimate**: Get storage quota and usage estimates.
 - 🔁 **Reactive**: Provides observable state using Vue's reactivity
 - ✔️ **SSR**: Supports server-side-rendering by validating the availability of the StorageManager API.
@@ -59,8 +60,8 @@ In this case, `watchStorage` will default to `false`.
     <button :disabled="!$storageManager.isAvailable || $storageManager.isPersistent" @click="$storageManager.requestPersistentStorage()">
       {{ $storageManager.isPersistent ? 'Persistence granted' : 'Request persistence' }}
     </button>
-    <p>{{ (100 * $storageManager.storageEstimate.usage) / $storageManager.storageEstimate.quota }}%</p>
-    <p>{{ $storageManager.storageEstimate.usage / 1000000 }}MB</p>
+    <p>{{ (100 * $storageEstimate.usage) / $storageEstimate.quota }}%</p>
+    <p>{{ $storageEstimate.usage / 1000000 }}MB</p>
   </div>
 </template>
 ```

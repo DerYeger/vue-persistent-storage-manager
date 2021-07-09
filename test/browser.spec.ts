@@ -1,6 +1,11 @@
-import { VuePersistentStorageManager } from '@/main'
+/**
+ * @jest-environment jsdom
+ */
+
 import { createLocalVue } from '@vue/test-utils'
 import flushPromises from 'flush-promises'
+import { VueConstructor } from 'vue'
+import { PluginOptions, VuePersistentStorageManager } from '@/index'
 
 const localStorageMock = () => {
   return {
@@ -9,7 +14,7 @@ const localStorageMock = () => {
   }
 }
 
-async function testPluginInstallation(vm, options, isPersistent = false) {
+async function testPluginInstallation(vm: VueConstructor, options?: PluginOptions, isPersistent = false) {
   expect(vm.prototype.$storageManager).toBeUndefined()
   vm.use(VuePersistentStorageManager, options)
   expect(vm.prototype.$storageManager).toBeDefined()
@@ -18,13 +23,46 @@ async function testPluginInstallation(vm, options, isPersistent = false) {
   expect(vm.prototype.$storageManager.isPersistent).toBe(isPersistent)
 }
 
+function testStorageEstimate(vm: VueConstructor, expected: StorageEstimate) {
+  expect(vm.prototype.$storageManager.storageEstimate).toEqual(expected)
+  expect(vm.prototype.$storageEstimate).toEqual(expected)
+}
+
 describe('VuePersistentStorageManager in browser environment', () => {
-  beforeEach(async () => {
-    global.navigator.storage = {
-      estimate: () => Promise.resolve({}),
-      persist: () => Promise.resolve(false),
-      persisted: () => Promise.resolve(false),
-    }
+  beforeAll(() => {
+    Object.defineProperty(global.navigator, 'storage', {
+      value: {
+        estimate: () => Promise.resolve({}),
+        persist: () => Promise.resolve(false),
+        persisted: () => Promise.resolve(false),
+      },
+    })
+    Object.defineProperty(global.navigator, 'permissions', {
+      value: {
+        query: ({ name }: PermissionDescriptor) => {
+          if (name === 'persistent-storage') {
+            return Promise.resolve({
+              onChange: () => {
+                throw new Error()
+              },
+            })
+          } else {
+            return Promise.reject()
+          }
+        },
+      },
+    })
+  })
+  beforeEach(() => {
+    Object.defineProperty(global.navigator.storage, 'estimate', {
+      value: () => Promise.resolve({}),
+    })
+    Object.defineProperty(global.navigator.storage, 'persist', {
+      value: () => Promise.resolve(false),
+    })
+    Object.defineProperty(global.navigator.storage, 'persisted', {
+      value: () => Promise.resolve(false),
+    })
     Object.defineProperty(window, 'localStorage', {
       value: localStorageMock(),
     })
@@ -55,12 +93,12 @@ describe('VuePersistentStorageManager in browser environment', () => {
     global.navigator.storage.estimate = () => Promise.resolve(testEstimate)
     const vm = createLocalVue()
     await testPluginInstallation(vm)
-    expect(vm.prototype.$storageManager.storageEstimate).toEqual(testEstimate)
+    testStorageEstimate(vm, testEstimate)
   })
   it('updates the StorageEstimate on storage events', async () => {
     const vm = createLocalVue()
     await testPluginInstallation(vm)
-    expect(vm.prototype.$storageManager.storageEstimate).toEqual({})
+    testStorageEstimate(vm, {})
     const testEstimate = {
       quota: 42,
       usage: 7,
@@ -68,13 +106,13 @@ describe('VuePersistentStorageManager in browser environment', () => {
     global.navigator.storage.estimate = () => Promise.resolve(testEstimate)
     global.window.dispatchEvent(new StorageEvent('storage'))
     await flushPromises()
-    expect(vm.prototype.$storageManager.storageEstimate).toEqual(testEstimate)
+    testStorageEstimate(vm, testEstimate)
   })
   it('updates the StorageEstimate on localStorage.setItem', async () => {
     const vm = createLocalVue()
     await testPluginInstallation(vm, { watchStorage: true })
     const originalSetItemSpy = jest.spyOn(localStorage, 'originalSetItem')
-    expect(vm.prototype.$storageManager.storageEstimate).toEqual({})
+    testStorageEstimate(vm, {})
     const testEstimate = {
       quota: 42,
       usage: 7,
@@ -83,13 +121,13 @@ describe('VuePersistentStorageManager in browser environment', () => {
     localStorage.setItem('test', 'test')
     expect(originalSetItemSpy).toHaveBeenCalledTimes(1)
     await flushPromises()
-    expect(vm.prototype.$storageManager.storageEstimate).toEqual(testEstimate)
+    testStorageEstimate(vm, testEstimate)
   })
   it('updates the StorageEstimate on localStorage.removeItem', async () => {
     const vm = createLocalVue()
     await testPluginInstallation(vm, { watchStorage: true })
     const originalRemoveItemSpy = jest.spyOn(localStorage, 'originalRemoveItem')
-    expect(vm.prototype.$storageManager.storageEstimate).toEqual({})
+    testStorageEstimate(vm, {})
     const testEstimate = {
       quota: 42,
       usage: 7,
@@ -98,14 +136,14 @@ describe('VuePersistentStorageManager in browser environment', () => {
     localStorage.removeItem('test')
     expect(originalRemoveItemSpy).toHaveBeenCalledTimes(1)
     await flushPromises()
-    expect(vm.prototype.$storageManager.storageEstimate).toEqual(testEstimate)
+    testStorageEstimate(vm, testEstimate)
   })
   it('does not update the StorageEstimate if not configured to do so', async () => {
     const vm = createLocalVue()
     await testPluginInstallation(vm, { watchStorage: false })
     const setItemSpy = jest.spyOn(localStorage, 'setItem')
     const removeItemSpy = jest.spyOn(localStorage, 'removeItem')
-    expect(vm.prototype.$storageManager.storageEstimate).toEqual({})
+    testStorageEstimate(vm, {})
     const testEstimate = {
       quota: 42,
       usage: 7,
@@ -116,7 +154,7 @@ describe('VuePersistentStorageManager in browser environment', () => {
     expect(setItemSpy).toHaveBeenCalledTimes(1)
     expect(removeItemSpy).toHaveBeenCalledTimes(1)
     await flushPromises()
-    expect(vm.prototype.$storageManager.storageEstimate).toEqual({})
+    testStorageEstimate(vm, {})
   })
   it('handles denied persistence', async () => {
     const vm = createLocalVue()
@@ -138,16 +176,20 @@ describe('VuePersistentStorageManager in browser environment', () => {
     expect(vm.prototype.$storageManager.isPersistent).toBe(true)
   })
   it('handles permission granted without request', async () => {
-    const persistentStoragePermission = {}
-    global.navigator.permissions = {
-      query: ({ name }) => {
+    const persistentStoragePermission = {
+      onchange: () => {
+        throw new Error('')
+      },
+    }
+    Object.defineProperty(global.navigator.permissions, 'query', {
+      value: ({ name }: PermissionDescriptor) => {
         if (name === 'persistent-storage') {
           return Promise.resolve(persistentStoragePermission)
         } else {
           return Promise.reject()
         }
       },
-    }
+    })
     const vm = createLocalVue()
     await testPluginInstallation(vm)
     expect(vm.prototype.$storageManager.isPersistent).toBe(false)
@@ -158,16 +200,20 @@ describe('VuePersistentStorageManager in browser environment', () => {
   })
   it('handles permission revoked', async () => {
     global.navigator.storage.persisted = () => Promise.resolve(true)
-    const persistentStoragePermission = {}
-    global.navigator.permissions = {
-      query: ({ name }) => {
+    const persistentStoragePermission = {
+      onchange: () => {
+        throw new Error('')
+      },
+    }
+    Object.defineProperty(global.navigator.permissions, 'query', {
+      value: ({ name }: PermissionDescriptor) => {
         if (name === 'persistent-storage') {
           return Promise.resolve(persistentStoragePermission)
         } else {
           return Promise.reject()
         }
       },
-    }
+    })
     const vm = createLocalVue()
     await testPluginInstallation(vm, undefined, true)
     expect(vm.prototype.$storageManager.isPersistent).toBe(true)

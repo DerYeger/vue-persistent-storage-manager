@@ -19,48 +19,72 @@
   ],
   "version": "1.1.5",
   "private": false,
-  "main": "dist/vue-persistent-storage-manager.umd.js",
-  "types": "types/index.d.ts",
+  "source": "src/index.ts",
+  "main": "dist/vue-persistent-storage-manager.js",
+  "module": "dist/vue-persistent-storage-manager.module.js",
+  "unpkg": "dist/vue-persistent-storage-manager.umd.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist",
     "types"
   ],
   "scripts": {
-    "build": "vue-cli-service build --target lib --entry src/main.js",
-    "test": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint",
+    "build": "microbundle && bundlesize",
+    "test": "jest",
+    "lint": "eslint --ext \".js,.ts\"",
     "pretty": "prettier --write \"./**/*.{js,json,html,scss,ts,yml}\"",
-    "prepublishOnly": "yarn build",
-    "postbuild": "del-cli --force ./dist/demo.html"
+    "prepublishOnly": "yarn build"
   },
   "peerDependencies": {
     "vue": "^2.0.0"
   },
   "devDependencies": {
+    "@babel/core": "7.14.6",
     "@babel/eslint-parser": "7.14.7",
-    "@vue/cli-plugin-babel": "5.0.0-beta.2",
-    "@vue/cli-plugin-eslint": "5.0.0-beta.2",
-    "@vue/cli-plugin-unit-jest": "5.0.0-beta.2",
-    "@vue/cli-service": "5.0.0-beta.2",
-    "@vue/eslint-config-prettier": "6.0.0",
+    "@babel/preset-typescript": "7.14.5",
+    "@types/jest": "26.0.24",
+    "@typescript-eslint/eslint-plugin": "4.28.2",
+    "@typescript-eslint/parser": "4.28.2",
     "@vue/test-utils": "1.2.1",
-    "del-cli": "4.0.0",
+    "babel-jest": "27.0.6",
+    "bundlesize": "0.18.1",
     "eslint": "7.30.0",
+    "eslint-config-prettier": "8.3.0",
     "eslint-plugin-prettier": "3.4.0",
-    "eslint-plugin-vue": "7.13.0",
     "flush-promises": "1.0.2",
+    "jest": "27.0.6",
     "lint-staged": "11.0.0",
+    "microbundle": "0.13.3",
     "prettier": "2.3.2",
+    "ts-jest": "27.0.3",
+    "typescript": "4.3.5",
     "vue": "2.6.14",
-    "vue-jest": "4.0.1",
-    "vue-template-compiler": "2.6.14"
+    "vue-template-compiler": "2.6.14",
+    "yorkie": "2.0.0"
   },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-typescript"
+    ]
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "bundlesize": [
+    {
+      "path": "./dist/*.js",
+      "maxSize": "1024b"
+    }
+  ],
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
     "*.{js,jsx,vue}": [
-      "vue-cli-service lint",
+      "yarn lint",
       "git add"
     ]
   }
