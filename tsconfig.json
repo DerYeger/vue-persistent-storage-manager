@@ -13,7 +13,8 @@
     "baseUrl": ".",
     "types": ["jest", "node"],
     "paths": {
-      "@/*": ["src/*"]
+      "@src/*": ["src/*"],
+      "@test/*": ["test/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
