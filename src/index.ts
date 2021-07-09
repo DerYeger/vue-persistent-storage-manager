@@ -101,21 +101,22 @@ export class VuePersistentStorageManager {
     if (typeof localStorage === 'undefined') {
       return
     }
+    const self = this
     if (typeof localStorage.originalSetItem === 'undefined') {
       localStorage.originalSetItem = localStorage.setItem
     }
     const setItem = localStorage.setItem
-    localStorage.setItem = (...args) => {
+    localStorage.setItem = function (...args) {
       setItem.apply(this, args)
-      this._refreshStorageEstimate()
+      self._refreshStorageEstimate()
     }
     if (typeof localStorage.originalRemoveItem === 'undefined') {
       localStorage.originalRemoveItem = localStorage.removeItem
     }
     const removeItem = localStorage.removeItem
-    localStorage.removeItem = (...args) => {
+    localStorage.removeItem = function (...args) {
       removeItem.apply(this, args)
-      this._refreshStorageEstimate()
+      self._refreshStorageEstimate()
     }
   }
 }

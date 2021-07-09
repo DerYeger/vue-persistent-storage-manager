@@ -16,7 +16,14 @@
     "ecmaVersion": 2020,
     "sourceType": "module"
   },
-  "rules": {},
+  "rules": {
+    "@typescript-eslint/no-this-alias": [
+      "error",
+      {
+        "allowedNames": ["self"]
+      }
+    ]
+  },
   "overrides": [
     {
       "files": ["src/index.ts"],
