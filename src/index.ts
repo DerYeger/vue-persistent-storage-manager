@@ -22,11 +22,14 @@ export class VuePersistentStorageManager {
    * Indicates that the StorageManager API is available.
    */
   public readonly isAvailable = typeof navigator !== 'undefined' && navigator?.storage?.persist !== undefined
-  private _isPersistent = false
-  private _storageEstimate: StorageEstimate = Vue.observable({
+  /**
+   * Contains storage quota and usage information.
+   */
+  public readonly storageEstimate: StorageEstimate = {
     quota: undefined,
     usage: undefined,
-  })
+  }
+  private _isPersistent = false
 
   /**
    * Installs a VuePersistentStorageManager as a Vue plugin.
@@ -62,14 +65,7 @@ export class VuePersistentStorageManager {
    * Indicates that persistence of localStorage has been granted.
    */
   public get isPersistent(): boolean {
-    return this.isAvailable && this._isPersistent
-  }
-
-  /**
-   * Contains storage quota and usage information.
-   */
-  public get storageEstimate(): StorageEstimate {
-    return this._storageEstimate
+    return this._isPersistent
   }
 
   /**
@@ -91,9 +87,9 @@ export class VuePersistentStorageManager {
   }
 
   private _refreshStorageEstimate() {
-    navigator.storage.estimate().then((storageEstimate) => {
-      this._storageEstimate.quota = storageEstimate.quota
-      this._storageEstimate.usage = storageEstimate.usage
+    navigator.storage.estimate().then(({ quota, usage }) => {
+      Vue.set(this.storageEstimate, 'quota', quota)
+      Vue.set(this.storageEstimate, 'usage', usage)
     })
   }
 
