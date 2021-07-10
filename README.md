@@ -8,7 +8,7 @@
     <img alt="NPM" src="https://img.shields.io/npm/v/vue-persistent-storage-manager?logo=npm">
   </a>
   <a href="https://codecov.io/gh/DerYeger/vue-persistent-storage-manager">
-    <img alt="Coverage" src="https://codecov.io/gh/DerYeger/vue-persistent-storage-manager/branch/master/graph/badge.svg?token=p35W6u2noe"/>
+    <img alt="Coverage" src="https://codecov.io/gh/DerYeger/vue-persistent-storage-manager/branch/master/graph/badge.svg?token=p35W6u2noe">
   </a>
   <a href="https://lgtm.com/projects/g/DerYeger/vue-persistent-storage-manager">
     <img alt="LGTM Grade" src="https://img.shields.io/lgtm/grade/javascript/github/DerYeger/vue-persistent-storage-manager?logo=lgtm">
@@ -16,9 +16,15 @@
 </p>
 
 <p align="center">
-  <img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/vue-persistent-storage-manager/peer/vue">
-  <img alt="MIT" src="https://img.shields.io/npm/l/vue-persistent-storage-manager?color=#4DC71F">
-  <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/vue-persistent-storage-manager">
+  <a href="https://www.npmjs.com/package/vue">
+    <img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/vue-persistent-storage-manager/peer/vue">
+  </a>
+  <a href="https://opensource.org/licenses/MIT">
+    <img alt="MIT" src="https://img.shields.io/npm/l/vue-persistent-storage-manager?color=#4DC71F">
+  </a>
+  <a href="https://bundlephobia.com/package/vue-persistent-storage-manager">
+    <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/vue-persistent-storage-manager">
+  </a>
 </p>
 
 > Vue plugin that wraps the [StorageManager](https://developer.mozilla.org/en-US/docs/Web/API/StorageManager) API and provides the state of the `persistent-storage` permission alongside a storage estimate.
