@@ -43,3 +43,4 @@ jobs:
         with:
           commit_message: 'fix(release): schedule release'
           commit_options: '--no-verify --signoff --allow-empty'
+          skip_dirty_check: true
