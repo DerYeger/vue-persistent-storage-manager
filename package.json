@@ -54,7 +54,7 @@
     "eslint-plugin-prettier": "4.0.0",
     "flush-promises": "1.0.2",
     "jest": "27.3.1",
-    "lint-staged": "11.2.4",
+    "lint-staged": "11.2.6",
     "microbundle": "0.14.1",
     "prettier": "2.4.1",
     "ts-jest": "27.0.7",
