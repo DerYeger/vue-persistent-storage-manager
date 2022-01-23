@@ -39,7 +39,7 @@
     "vue": "^2.0.0"
   },
   "devDependencies": {
-    "@babel/core": "7.16.10",
+    "@babel/core": "7.16.12",
     "@babel/eslint-parser": "7.16.5",
     "@babel/preset-env": "7.16.11",
     "@babel/preset-typescript": "7.16.7",
