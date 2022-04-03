@@ -1,3 +1,10 @@
+## [2.0.28](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v2.0.27...v2.0.28) (2022-04-03)
+
+
+### Bug Fixes
+
+* **release:** schedule release ([8991881](https://github.com/DerYeger/vue-persistent-storage-manager/commit/899188184389c15b65731d1d3a5db3ca42b52b56))
+
 ## [2.0.27](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v2.0.26...v2.0.27) (2022-03-27)
 
 
