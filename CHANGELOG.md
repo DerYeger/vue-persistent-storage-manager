@@ -1,3 +1,10 @@
+## [2.0.52](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v2.0.51...v2.0.52) (2022-09-03)
+
+
+### Bug Fixes
+
+* **deps:** update cycjimmy/semantic-release-action action to v3.1.1 ([7e66a58](https://github.com/DerYeger/vue-persistent-storage-manager/commit/7e66a589a3a48fd158f75f58fec4295a751d258b))
+
 ## [2.0.51](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v2.0.50...v2.0.51) (2022-08-27)
 
 
