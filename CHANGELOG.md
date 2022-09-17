@@ -1,3 +1,10 @@
+## [2.0.56](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v2.0.55...v2.0.56) (2022-09-17)
+
+
+### Bug Fixes
+
+* **deps:** update babel monorepo to v7.19.1 ([be99aa0](https://github.com/DerYeger/vue-persistent-storage-manager/commit/be99aa0189e650058538fd544543bd9f4f1afdbe))
+
 ## [2.0.55](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v2.0.54...v2.0.55) (2022-09-17)
 
 
