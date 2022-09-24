@@ -1,3 +1,10 @@
+## [2.0.57](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v2.0.56...v2.0.57) (2022-09-24)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint to v8.24.0 ([83b5231](https://github.com/DerYeger/vue-persistent-storage-manager/commit/83b5231b37a13a8b36e3850baa334bb48e081834))
+
 ## [2.0.56](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v2.0.55...v2.0.56) (2022-09-17)
 
 
