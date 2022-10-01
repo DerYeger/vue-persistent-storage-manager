@@ -1,3 +1,10 @@
+## [2.0.60](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v2.0.59...v2.0.60) (2022-10-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency typescript to v4.8.4 ([3321db5](https://github.com/DerYeger/vue-persistent-storage-manager/commit/3321db5d84ff50a26b12532f4b23ef0089ed3a7d))
+
 ## [2.0.59](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v2.0.58...v2.0.59) (2022-10-01)
 
 
