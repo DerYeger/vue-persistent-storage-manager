@@ -1,3 +1,10 @@
+## [2.0.63](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v2.0.62...v2.0.63) (2022-10-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @babel/preset-env to v7.19.4 ([9403ded](https://github.com/DerYeger/vue-persistent-storage-manager/commit/9403deddff21d273558542d8b5c4729f2652ae12))
+
 ## [2.0.62](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v2.0.61...v2.0.62) (2022-10-08)
 
 
