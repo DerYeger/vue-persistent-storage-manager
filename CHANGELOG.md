@@ -1,3 +1,10 @@
+## [2.0.75](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v2.0.74...v2.0.75) (2022-11-26)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([610cfe5](https://github.com/DerYeger/vue-persistent-storage-manager/commit/610cfe5f01c98e9ba060db1b9f845cae97a1e439))
+
 ## [2.0.74](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v2.0.73...v2.0.74) (2022-11-19)
 
 
