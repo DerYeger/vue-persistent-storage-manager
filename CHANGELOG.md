@@ -1,3 +1,10 @@
+## [2.0.80](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v2.0.79...v2.0.80) (2022-12-10)
+
+
+### Bug Fixes
+
+* **deps:** update typescript-eslint monorepo to v5.46.0 ([797cd7b](https://github.com/DerYeger/vue-persistent-storage-manager/commit/797cd7b9a6d6669f72ba080a4f046ec339372352))
+
 ## [2.0.79](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v2.0.78...v2.0.79) (2022-12-10)
 
 
