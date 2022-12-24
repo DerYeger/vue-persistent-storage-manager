@@ -1,3 +1,10 @@
+## [2.0.82](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v2.0.81...v2.0.82) (2022-12-24)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @babel/core to v7.20.7 ([31078c4](https://github.com/DerYeger/vue-persistent-storage-manager/commit/31078c43f59f7eca2b960893128967881cbb4d8d))
+
 ## [2.0.81](https://github.com/DerYeger/vue-persistent-storage-manager/compare/v2.0.80...v2.0.81) (2022-12-17)
 
 
